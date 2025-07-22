@@ -44,21 +44,21 @@ const HeroSection = () => {
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button size="lg" className="bg-white text-pharmacy-green hover:bg-white/90 shadow-strong" asChild>
+              <Button size="lg" className="bg-white text-pharmacy-green hover:bg-pharmacy-green hover:text-white shadow-strong" asChild>
                 <a href="https://wa.me/5548998437993" target="_blank" rel="noopener noreferrer">
                   <Phone className="w-5 h-5 mr-2" />
                   Fale conosco no WhatsApp
                 </a>
               </Button>
               
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-pharmacy-green" asChild>
+              <Button size="lg" className="bg-white text-pharmacy-green hover:bg-pharmacy-green hover:text-white shadow-strong" asChild>
                 <a href="#produtos">
                   <Pill className="w-5 h-5 mr-2" />
                   Ver catálogos
                 </a>
               </Button>
               
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-pharmacy-green" asChild>
+              <Button size="lg" className="bg-white text-pharmacy-green hover:bg-pharmacy-green hover:text-white shadow-strong" asChild>
                 <a href="#contato">
                   <Calendar className="w-5 h-5 mr-2" />
                   Agendar atendimento

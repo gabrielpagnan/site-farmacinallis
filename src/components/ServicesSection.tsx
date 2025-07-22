@@ -62,7 +62,7 @@ const ServicesSection = () => {
       icon: UserCheck,
       title: "Atendimento Farmacêutico",
       description: "Orientação profissional especializada para uso correto de medicamentos.",
-      features: ["Consulta farmacêutica", "Orientação sobre posologia", "Acompanhamento terapêutico"]
+      features: ["Atendimento farmacêutico", "Orientação sobre posologia", "Acompanhamento terapêutico"]
     },
     {
       icon: ShoppingBag,

@@ -1,73 +1,73 @@
-# Welcome to your Lovable project
+# Farmacinallis - Site Institucional
 
-## Project info
+Este é o site institucional da Farmacinallis, uma farmácia de manipulação e drogaria localizada em Morro da Fumaça/SC. O site apresenta informações sobre a empresa, serviços, produtos, contato e canais de atendimento.
 
-**URL**: https://lovable.dev/projects/1a46a227-dee4-4d6e-9f8f-70b64579faaa
+## Funcionalidades
+- Página inicial com apresentação da empresa
+- Seção de serviços e produtos manipulados
+- Filtro de produtos por categoria
+- Formulário de contato
+- Botão flutuante para WhatsApp
+- Responsivo para dispositivos móveis
 
-## How can I edit this code?
+## Tecnologias Utilizadas
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/) (componentes)
+- [Lucide Icons](https://lucide.dev/)
 
-There are several ways of editing your application.
+## Como rodar o projeto localmente
 
-**Use Lovable**
+1. **Clone o repositório:**
+   ```bash
+   git clone <url-do-repositorio>
+   cd farmacinallis-cuida-bem-site
+   ```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1a46a227-dee4-4d6e-9f8f-70b64579faaa) and start prompting.
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
 
-Changes made via Lovable will be committed automatically to this repo.
+3. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
 
-**Use your preferred IDE**
+4. **Acesse no navegador:**
+   Abra [http://localhost:8080](http://localhost:8080)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## Estrutura de Pastas
+```
+├── public/           # Arquivos estáticos (favicon, imagens públicas)
+├── src/
+│   ├── assets/       # Imagens e logos
+│   ├── components/   # Componentes React reutilizáveis
+│   ├── hooks/        # Hooks customizados
+│   ├── pages/        # Páginas principais
+│   └── App.tsx       # Componente principal
+├── package.json      # Dependências e scripts
+├── tailwind.config.ts
+└── vite.config.ts
 ```
 
-**Edit a file directly in GitHub**
+## Principais Comandos
+- `npm run dev` — Inicia o servidor de desenvolvimento
+- `npm run build` — Gera a versão de produção
+- `npm run preview` — Visualiza a build de produção localmente
+- `npm run lint` — Verifica problemas de lint no código
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Contato
+- WhatsApp: (48) 99843-7993
+- E-mail: farmacinallis@hotmail.com
+- Instagram: [@farmacinallis](https://instagram.com/farmacinallis)
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/1a46a227-dee4-4d6e-9f8f-70b64579faaa) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Desenvolvido com ❤️ para Farmacinallis 

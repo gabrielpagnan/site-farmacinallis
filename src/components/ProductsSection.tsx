@@ -3,8 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Brain, Zap, Moon, Shield, Sparkles } from "lucide-react";
 import productsImage from "@/assets/products.jpg";
+import { useState } from "react";
 
 const ProductsSection = () => {
+  const [selectedCategory, setSelectedCategory] = useState("Todos");
   const featuredProducts = [
     {
       name: "Morosil",
@@ -58,6 +60,10 @@ const ProductsSection = () => {
 
   const categories = ["Todos", "Emagrecimento", "Ansiedade", "Sono", "Performance", "Imunidade"];
 
+  const filteredProducts = selectedCategory === "Todos"
+    ? featuredProducts
+    : featuredProducts.filter(product => product.category === selectedCategory);
+
   return (
     <section id="produtos" className="py-20 bg-pharmacy-cream">
       <div className="container mx-auto px-4">
@@ -87,12 +93,14 @@ const ProductsSection = () => {
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap gap-4 justify-center mb-12">
           {categories.map((category) => (
             <Badge 
               key={category} 
-              variant={category === "Todos" ? "default" : "outline"} 
+              variant={category === selectedCategory ? "default" : "outline"} 
               className="px-4 py-2 cursor-pointer hover:shadow-soft transition-shadow"
+              onClick={() => setSelectedCategory(category)}
+              style={{ userSelect: "none" }}
             >
               {category}
             </Badge>
@@ -101,7 +109,7 @@ const ProductsSection = () => {
 
         {/* Products Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {featuredProducts.map((product, index) => (
+          {filteredProducts.map((product, index) => (
             <Card key={index} className="p-6 hover:shadow-strong transition-all duration-300 hover:-translate-y-1 relative">
               {product.popular && (
                 <Badge className="absolute -top-2 -right-2 bg-gradient-primary text-white">

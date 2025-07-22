@@ -10,7 +10,6 @@ import { useToast } from "@/hooks/use-toast";
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
     message: ""
   });
@@ -23,7 +22,7 @@ const ContactSection = () => {
       title: "Mensagem enviada!",
       description: "Entraremos em contato em breve. Obrigado!"
     });
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setFormData({ name: "", phone: "", message: "" });
   };
 
   const contactInfo = [
@@ -146,18 +145,6 @@ const ContactSection = () => {
                       required
                     />
                   </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="email">E-mail</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    placeholder="seu@email.com"
-                    required
-                  />
                 </div>
                 
                 <div className="space-y-2">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Instagram, Menu, X } from "lucide-react";
+import logo from "@/assets/FarmaCinallis (2).png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,13 +12,12 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">F</span>
-            </div>
-            <div>
-              <h1 className="font-bold text-xl text-pharmacy-green">Farmacinallis</h1>
-              <p className="text-sm text-muted-foreground">Cuidar é a nossa essência</p>
-            </div>
+            <img
+              src={logo}
+              alt="Logo Farmacinallis"
+              className="h-16 w-auto max-w-[180px]"
+              style={{ background: "transparent" }}
+            />
           </div>
 
           {/* Desktop Navigation */}

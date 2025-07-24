@@ -71,7 +71,7 @@ const ContactSection = () => {
     {
       icon: Clock,
       title: "Horário de Funcionamento",
-      info: "Segunda a Sexta: 8h às 18h",
+      info: "Segunda a Sexta: 8h às 19h",
       link: "#",
       description: "Sábado: 8h às 12h",
     },
@@ -130,67 +130,6 @@ const ContactSection = () => {
                 </div>
               </Card>
             ))}
-          </div>
-
-          {/* Contact Form */}
-          <div>
-            <h3 className="text-2xl font-bold text-pharmacy-green mb-8">
-              Envie sua Mensagem
-            </h3>
-
-            <Card className="p-6">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Nome completo</Label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
-                      placeholder="Seu nome"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">WhatsApp/Telefone</Label>
-                    <Input
-                      id="phone"
-                      value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
-                      placeholder="(48) 99999-9999"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">Mensagem</Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    placeholder="Como podemos ajudar você? Descreva sua necessidade ou dúvida..."
-                    className="min-h-32"
-                    required
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full shadow-medium"
-                >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Enviar Mensagem
-                </Button>
-              </form>
-            </Card>
           </div>
         </div>
 

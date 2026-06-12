@@ -1,178 +1,187 @@
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Heart, Brain, Zap, Moon, Shield, Sparkles } from "lucide-react";
-import productsImage from "@/assets/products.jpg";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Heart, Brain, Zap, Moon, Shield, Leaf } from "lucide-react";
+import Reveal from "@/components/Reveal";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
+import { waLink } from "@/lib/whatsapp";
+import { cn } from "@/lib/utils";
+
+const featuredProducts = [
+  {
+    name: "Morosil",
+    category: "Emagrecimento",
+    description: "Extrato natural que auxilia no controle de peso e na redução da gordura abdominal.",
+    benefits: ["Redução da circunferência abdominal", "Controle do peso", "Ação antioxidante"],
+    icon: Heart,
+    popular: true,
+  },
+  {
+    name: "Cactin",
+    category: "Emagrecimento",
+    description: "Extrato de cacto que promove saciedade e auxilia no emagrecimento saudável.",
+    benefits: ["Aumento da saciedade", "Controle da glicemia", "Auxílio na queima de gordura"],
+    icon: Heart,
+    popular: true,
+  },
+  {
+    name: "Clonapure",
+    category: "Ansiedade",
+    description: "Fórmula natural para o controle da ansiedade e melhora do bem-estar mental.",
+    benefits: ["Redução da ansiedade", "Melhora do humor", "Relaxamento natural"],
+    icon: Brain,
+    popular: false,
+  },
+  {
+    name: "Complexo para Sono",
+    category: "Sono",
+    description: "Combinação de ativos naturais para um sono reparador e de qualidade.",
+    benefits: ["Indução natural do sono", "Melhora da qualidade do sono", "Relaxamento noturno"],
+    icon: Moon,
+    popular: true,
+  },
+  {
+    name: "Liberação de Testosterona",
+    category: "Performance",
+    description: "Fórmula para otimização natural dos níveis hormonais e da performance.",
+    benefits: ["Mais energia", "Melhora da performance", "Bem-estar masculino"],
+    icon: Zap,
+    popular: false,
+  },
+  {
+    name: "Complexo Imunidade",
+    category: "Imunidade",
+    description: "Vitaminas e minerais essenciais para fortalecer o sistema imunológico.",
+    benefits: ["Fortalecimento imunológico", "Prevenção de gripes", "Mais vitalidade"],
+    icon: Shield,
+    popular: true,
+  },
+];
+
+const categories = ["Todos", "Emagrecimento", "Ansiedade", "Sono", "Performance", "Imunidade"];
 
 const ProductsSection = () => {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
-  const featuredProducts = [
-    {
-      name: "Morosil",
-      category: "Emagrecimento",
-      description: "Extrato natural que auxilia no controle de peso e redução da gordura abdominal.",
-      benefits: ["Redução da circunferência abdominal", "Controle do peso", "Antioxidante natural"],
-      icon: Heart,
-      popular: true
-    },
-    {
-      name: "Cactin",
-      category: "Emagrecimento",
-      description: "Extrato de cacto que promove saciedade e auxilia no emagrecimento saudável.",
-      benefits: ["Aumento da saciedade", "Controle da glicemia", "Queima de gordura"],
-      icon: Heart,
-      popular: true
-    },
-    {
-      name: "Clonapure",
-      category: "Ansiedade",
-      description: "Fórmula natural para controle da ansiedade e melhora do bem-estar mental.",
-      benefits: ["Redução da ansiedade", "Melhora do humor", "Relaxamento natural"],
-      icon: Brain,
-      popular: false
-    },
-    {
-      name: "Complexo para Sono",
-      category: "Sono",
-      description: "Combinação de ativos naturais para promover um sono reparador e de qualidade.",
-      benefits: ["Indução natural do sono", "Melhora da qualidade do sono", "Relaxamento noturno"],
-      icon: Moon,
-      popular: true
-    },
-    {
-      name: "Liberação de Testosterona",
-      category: "Performance",
-      description: "Fórmula para otimização natural dos níveis hormonais e performance.",
-      benefits: ["Aumento da energia", "Melhora da performance", "Bem-estar masculino"],
-      icon: Zap,
-      popular: false
-    },
-    {
-      name: "Complexo Imunidade",
-      category: "Imunidade",
-      description: "Vitaminas e minerais essenciais para fortalecer o sistema imunológico.",
-      benefits: ["Fortalecimento imunológico", "Prevenção de gripes", "Aumento da vitalidade"],
-      icon: Shield,
-      popular: true
-    }
-  ];
 
-  const categories = ["Todos", "Emagrecimento", "Ansiedade", "Sono", "Performance", "Imunidade"];
-
-  const filteredProducts = selectedCategory === "Todos"
-    ? featuredProducts
-    : featuredProducts.filter(product => product.category === selectedCategory);
+  const filteredProducts =
+    selectedCategory === "Todos"
+      ? featuredProducts
+      : featuredProducts.filter((product) => product.category === selectedCategory);
 
   return (
-    <section id="produtos" className="py-20 bg-pharmacy-cream">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-pharmacy-green mb-6">
-            Catálogo / Produtos em Destaque
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Descubra nossa seleção de produtos manipulados com qualidade farmacêutica
-          </p>
-        </div>
-
-        {/* Product Image Hero */}
-        <div className="relative mb-16 rounded-2xl overflow-hidden shadow-strong max-w-4xl mx-auto">
-          <img 
-            src={productsImage} 
-            alt="Produtos Farmacinallis" 
-            className="w-full h-64 md:h-80 object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-primary opacity-20"></div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white">
-              <h3 className="text-2xl md:text-3xl font-bold mb-2">Qualidade Garantida</h3>
-              <p className="text-lg">Produtos manipulados com rigor científico</p>
-            </div>
+    <section id="produtos" className="py-20 md:py-28 bg-background">
+      <div className="container">
+        <Reveal>
+          <div className="max-w-2xl mb-10">
+            <h2 className="font-display font-semibold text-[clamp(2rem,4vw,3rem)] leading-tight text-forest mb-4">
+              Fórmulas em destaque
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Os manipulados mais procurados da FarmaCinallis. Não encontrou o que precisa?
+              Preparamos qualquer fórmula a partir da sua receita.
+            </p>
           </div>
-        </div>
+        </Reveal>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap gap-4 justify-center mb-12">
-          {categories.map((category) => (
-            <Badge 
-              key={category} 
-              variant={category === selectedCategory ? "default" : "outline"} 
-              className="px-4 py-2 cursor-pointer hover:shadow-soft transition-shadow"
-              onClick={() => setSelectedCategory(category)}
-              style={{ userSelect: "none" }}
-            >
-              {category}
-            </Badge>
-          ))}
-        </div>
+        {/* Filtro por categoria */}
+        <Reveal delay={100}>
+          <div
+            className="flex flex-wrap gap-2.5 mb-12"
+            role="group"
+            aria-label="Filtrar produtos por categoria"
+          >
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => setSelectedCategory(category)}
+                aria-pressed={category === selectedCategory}
+                className={cn(
+                  "px-4 py-2 rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                  category === selectedCategory
+                    ? "bg-forest text-white"
+                    : "bg-card border border-border text-muted-foreground hover:border-leaf/60 hover:text-forest"
+                )}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </Reveal>
 
-        {/* Products Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {/* Grade de produtos */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {filteredProducts.map((product, index) => (
-            <Card key={index} className="p-6 hover:shadow-strong transition-all duration-300 hover:-translate-y-1 relative">
-              {product.popular && (
-                <Badge className="absolute -top-2 -right-2 bg-gradient-primary text-white">
-                  Popular
-                </Badge>
-              )}
-              
-              <div className="flex items-start space-x-4 mb-4">
-                <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                  <product.icon className="w-6 h-6 text-white" />
+            <Reveal key={product.name} delay={Math.min(index, 2) * 90}>
+              <article className="relative h-full flex flex-col bg-card rounded-2xl border border-border/70 p-6 hover:shadow-medium hover:border-leaf/50 transition-all duration-300">
+                <div className="flex items-start justify-between gap-3 mb-4">
+                  <span className="w-11 h-11 rounded-xl bg-leaf-tint flex items-center justify-center">
+                    <product.icon className="w-5 h-5 text-leaf-dark" aria-hidden="true" />
+                  </span>
+                  {product.popular && (
+                    <span className="text-xs font-semibold uppercase tracking-wide bg-leaf text-forest-deep rounded-full px-3 py-1">
+                      Mais pedido
+                    </span>
+                  )}
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-pharmacy-green mb-1">{product.name}</h3>
-                  <Badge variant="outline" className="text-xs">{product.category}</Badge>
-                </div>
-              </div>
-              
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                {product.description}
-              </p>
-              
-              <div className="mb-6">
-                <h4 className="font-semibold text-foreground mb-2">Benefícios:</h4>
-                <ul className="space-y-1">
-                  {product.benefits.map((benefit, benefitIndex) => (
-                    <li key={benefitIndex} className="text-sm text-foreground flex items-center">
-                      <Sparkles className="w-3 h-3 text-primary mr-2 flex-shrink-0" />
+
+                <h3 className="font-display font-semibold text-xl text-forest">{product.name}</h3>
+                <p className="text-sm text-muted-foreground mb-3">{product.category}</p>
+
+                <p className="text-[0.95rem] text-muted-foreground leading-relaxed mb-5">
+                  {product.description}
+                </p>
+
+                <ul className="space-y-2 mb-6">
+                  {product.benefits.map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-2.5 text-sm text-foreground/85">
+                      <Leaf className="w-4 h-4 text-leaf-dark shrink-0 mt-0.5" aria-hidden="true" />
                       {benefit}
                     </li>
                   ))}
                 </ul>
-              </div>
-              
-              <Button variant="outline" className="w-full" asChild>
-                <a href="https://wa.me/5548998437993" target="_blank" rel="noopener noreferrer">
-                  Consultar Preço
-                </a>
-              </Button>
-            </Card>
+
+                <Button variant="outline" className="mt-auto w-full rounded-full" asChild>
+                  <a
+                    href={waLink(`Olá! Gostaria de saber mais sobre ${product.name}.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <WhatsAppIcon className="w-4 h-4" />
+                    Consultar pelo WhatsApp
+                  </a>
+                </Button>
+              </article>
+            </Reveal>
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center bg-card p-8 rounded-2xl shadow-medium">
-          <h3 className="text-2xl font-bold text-pharmacy-green mb-4">
-            Não encontrou o que procura?
-          </h3>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Nossa equipe pode desenvolver fórmulas personalizadas de acordo com sua receita médica ou necessidades específicas.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="shadow-medium" asChild>
-              <a href="https://wa.me/5548998437993" target="_blank" rel="noopener noreferrer">
-                Solicitar Fórmula Personalizada
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="#contato">
-                Falar com Farmacêutico
-              </a>
-            </Button>
+        {/* CTA de fórmula personalizada */}
+        <Reveal>
+          <div className="rounded-3xl bg-leaf-tint border border-leaf/25 p-8 md:p-12 text-center">
+            <h3 className="font-display font-semibold text-2xl md:text-3xl text-forest mb-3">
+              Tem uma receita em mãos?
+            </h3>
+            <p className="text-muted-foreground max-w-[60ch] mx-auto mb-7">
+              Desenvolvemos fórmulas personalizadas de acordo com a sua prescrição médica ou
+              necessidade específica. Envie uma foto da receita e receba o orçamento.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="rounded-full px-7" asChild>
+                <a
+                  href={waLink("Olá! Tenho uma receita e gostaria de um orçamento.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <WhatsAppIcon className="w-4 h-4" />
+                  Enviar receita agora
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-full px-7 bg-transparent" asChild>
+                <a href="#contato">Ver canais de atendimento</a>
+              </Button>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

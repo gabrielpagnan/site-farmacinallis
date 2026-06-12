@@ -12,12 +12,16 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: '1.25rem',
 			screens: {
-				'2xl': '1400px'
+				'2xl': '1280px'
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
+				display: ['Petrona', 'Georgia', 'serif']
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -62,17 +66,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				pharmacy: {
-					green: 'hsl(var(--pharmacy-green))',
-					'green-light': 'hsl(var(--pharmacy-green-light))',
-					'green-dark': 'hsl(var(--pharmacy-green-dark))',
-					white: 'hsl(var(--pharmacy-white))',
-					cream: 'hsl(var(--pharmacy-cream))'
+				forest: {
+					DEFAULT: 'hsl(var(--forest))',
+					deep: 'hsl(var(--forest-deep))',
+					soft: 'hsl(var(--forest-soft))'
+				},
+				leaf: {
+					DEFAULT: 'hsl(var(--leaf))',
+					bright: 'hsl(var(--leaf-bright))',
+					dark: 'hsl(var(--leaf-dark))',
+					tint: 'hsl(var(--leaf-tint))'
 				}
 			},
 			backgroundImage: {
-				'gradient-primary': 'var(--gradient-primary)',
-				'gradient-subtle': 'var(--gradient-subtle)',
 				'gradient-hero': 'var(--gradient-hero)'
 			},
 			boxShadow: {

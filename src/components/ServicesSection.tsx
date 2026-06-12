@@ -1,133 +1,176 @@
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { 
-  Pill, 
-  Heart, 
-  Brain, 
-  Shield, 
-  Moon, 
-  Zap, 
-  Sparkles, 
+import {
+  Heart,
+  Brain,
+  Shield,
+  Moon,
+  Zap,
+  Sparkles,
   UserCheck,
-  Stethoscope,
   ShoppingBag,
-  Handshake
+  Handshake,
+  Check,
 } from "lucide-react";
+import Reveal from "@/components/Reveal";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
+import LeafMotif from "@/components/LeafMotif";
+import { waLink } from "@/lib/whatsapp";
+
+const specialties = [
+  {
+    icon: Heart,
+    title: "Emagrecimento",
+    description: "Composições para perda de peso com segurança: Morosil, Cactin e combinações personalizadas.",
+  },
+  {
+    icon: Brain,
+    title: "Saúde Mental",
+    description: "Fórmulas para ansiedade, humor e foco, sempre conforme a prescrição médica.",
+  },
+  {
+    icon: Shield,
+    title: "Imunidade",
+    description: "Vitamina D, complexos vitamínicos e imunomoduladores para fortalecer suas defesas.",
+  },
+  {
+    icon: Moon,
+    title: "Sono",
+    description: "Melatonina e fitoterápicos calmantes para noites de descanso reparador.",
+  },
+  {
+    icon: Zap,
+    title: "Performance",
+    description: "Suplementos para energia, disposição e recuperação muscular no dia a dia.",
+  },
+  {
+    icon: Sparkles,
+    title: "Estética",
+    description: "Colágeno, antioxidantes e vitaminas para a saúde da pele, cabelos e unhas.",
+  },
+];
+
+const support = [
+  {
+    icon: UserCheck,
+    title: "Atendimento farmacêutico",
+    description: "Orientação profissional sobre posologia e acompanhamento do tratamento.",
+  },
+  {
+    icon: ShoppingBag,
+    title: "Drogaria completa",
+    description: "Medicamentos convencionais, dermocosméticos e produtos de higiene.",
+  },
+  {
+    icon: Handshake,
+    title: "Parcerias profissionais",
+    description: "Apoio a médicos e nutricionistas no desenvolvimento de prescrições.",
+  },
+];
+
+const featureHighlights = [
+  "Dosagens ajustadas à sua prescrição",
+  "Cápsulas, cremes, soluções e outras formas farmacêuticas",
+  "Matérias-primas com procedência e laudo de qualidade",
+];
 
 const ServicesSection = () => {
-  const services = [
-    {
-      icon: Pill,
-      title: "Manipulação Personalizada",
-      description: "Fórmulas exclusivas sob medida, desenvolvidas especificamente para suas necessidades de saúde.",
-      features: ["Dosagens personalizadas", "Formas farmacêuticas variadas", "Matérias-primas de qualidade"]
-    },
-    {
-      icon: Heart,
-      title: "Fórmulas para Emagrecimento",
-      description: "Composições especializadas para auxiliar no processo de perda de peso com segurança.",
-      features: ["Morosil", "Cactin", "Clonapure", "Combinações personalizadas"]
-    },
-    {
-      icon: Brain,
-      title: "Saúde Mental",
-      description: "Medicamentos manipulados para ansiedade, depressão e bem-estar mental.",
-      features: ["Ansiolíticos naturais", "Antidepressivos", "Suplementos para foco"]
-    },
-    {
-      icon: Shield,
-      title: "Imunidade",
-      description: "Fortalecimento do sistema imunológico com compostos naturais e vitaminas.",
-      features: ["Vitamina D", "Complexos vitamínicos", "Imunomoduladores"]
-    },
-    {
-      icon: Moon,
-      title: "Fórmulas para Sono",
-      description: "Soluções naturais para insônia e distúrbios do sono, promovendo descanso reparador.",
-      features: ["Melatonina", "Fitoterápicos calmantes", "Complexos para relaxamento"]
-    },
-    {
-      icon: Zap,
-      title: "Performance",
-      description: "Suplementos para melhorar performance física e mental, energia e disposição.",
-      features: ["Pré-treino", "Recuperação muscular", "Energia sustentada"]
-    },
-    {
-      icon: Sparkles,
-      title: "Estética",
-      description: "Produtos para saúde da pele, cabelos e unhas, promovendo beleza de dentro para fora.",
-      features: ["Antioxidantes", "Colágeno", "Vitaminas para pele"]
-    },
-    {
-      icon: UserCheck,
-      title: "Atendimento Farmacêutico",
-      description: "Orientação profissional especializada para uso correto de medicamentos.",
-      features: ["Atendimento farmacêutico", "Orientação sobre posologia", "Acompanhamento terapêutico"]
-    },
-    {
-      icon: ShoppingBag,
-      title: "Drogaria",
-      description: "Produtos farmacêuticos de qualidade, medicamentos e itens de saúde.",
-      features: ["Medicamentos convencionais", "Produtos de higiene", "Dermocosméticos"]
-    },
-    {
-      icon: Handshake,
-      title: "Parcerias Profissionais",
-      description: "Trabalho conjunto com médicos, nutricionistas e outros profissionais da saúde.",
-      features: ["Apoio a prescrições", "Desenvolvimento conjunto", "Capacitação profissional"]
-    }
-  ];
-
   return (
-    <section id="servicos" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-pharmacy-green mb-6">
-            Nossos Serviços
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Soluções completas em saúde, desde manipulação personalizada até atendimento especializado
-          </p>
-        </div>
+    <section id="servicos" className="py-20 md:py-28 bg-secondary/60">
+      <div className="container">
+        {/* Cabeçalho da seção */}
+        <Reveal>
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-end mb-12 md:mb-16">
+            <h2 className="font-display font-semibold text-[clamp(2rem,4vw,3rem)] leading-tight text-forest">
+              Nossos serviços
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-[55ch]">
+              Da manipulação personalizada ao balcão da drogaria: soluções completas em
+              saúde, com orientação farmacêutica em cada etapa.
+            </p>
+          </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {services.map((service, index) => (
-            <Card key={index} className="p-6 hover:shadow-strong transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-start space-x-4 mb-4">
-                <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                  <service.icon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-pharmacy-green mb-2">{service.title}</h3>
-                </div>
+        {/* Painel de destaque: manipulação personalizada */}
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-hero text-white p-8 md:p-12 lg:p-16 mb-14">
+            <LeafMotif className="absolute -top-16 -right-12 w-80 h-80 text-leaf/10 rotate-[200deg]" />
+            <div className="relative grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
+              <div>
+                <h3 className="font-display font-semibold text-3xl md:text-4xl mb-4">
+                  Manipulação personalizada
+                </h3>
+                <p className="text-white/85 text-lg max-w-[58ch] mb-8">
+                  Cada organismo é único — e a sua fórmula também deveria ser. Preparamos
+                  medicamentos exclusivos, na dose exata da sua receita, com o rigor de um
+                  laboratório moderno.
+                </p>
+                <ul className="space-y-3">
+                  {featureHighlights.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-1 w-5 h-5 rounded-full bg-leaf/20 flex items-center justify-center shrink-0">
+                        <Check className="w-3.5 h-3.5 text-leaf-bright" aria-hidden="true" />
+                      </span>
+                      <span className="text-white/90">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                {service.description}
-              </p>
-              
-              <ul className="space-y-1">
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="text-sm text-foreground flex items-center">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0"></span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </Card>
+              <div className="lg:text-right">
+                <Button
+                  size="lg"
+                  className="rounded-full px-7 py-6 text-base font-semibold bg-leaf text-forest-deep hover:bg-leaf-bright"
+                  asChild
+                >
+                  <a
+                    href={waLink("Olá! Gostaria de um orçamento para uma fórmula manipulada.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <WhatsAppIcon />
+                    Pedir orçamento
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Especialidades */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
+          {specialties.map((specialty, index) => (
+            <Reveal key={specialty.title} delay={Math.min(index, 2) * 90}>
+              <div className="group h-full bg-card rounded-2xl p-6 border border-border/70 hover:border-leaf/50 hover:shadow-medium transition-all duration-300">
+                <specialty.icon
+                  className="w-7 h-7 text-leaf-dark mb-4 transition-transform duration-300 group-hover:-translate-y-0.5"
+                  aria-hidden="true"
+                />
+                <h3 className="font-display font-semibold text-xl text-forest mb-2">
+                  {specialty.title}
+                </h3>
+                <p className="text-[0.95rem] text-muted-foreground leading-relaxed">
+                  {specialty.description}
+                </p>
+              </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="text-center">
-          <p className="text-lg text-muted-foreground mb-6">
-            Precisa de uma solução específica? Nossa equipe está pronta para desenvolver a fórmula ideal para você.
-          </p>
-          <Button size="lg" className="shadow-medium" asChild>
-            <a href="https://wa.me/5548998437993" target="_blank" rel="noopener noreferrer">
-              Solicitar Orçamento Personalizado
-            </a>
-          </Button>
-        </div>
+        {/* Serviços de apoio */}
+        <Reveal>
+          <div className="grid md:grid-cols-3 gap-x-10 gap-y-6 pt-10 border-t border-border">
+            {support.map((item) => (
+              <div key={item.title} className="flex gap-4">
+                <item.icon className="w-6 h-6 text-leaf-dark shrink-0 mt-1" aria-hidden="true" />
+                <div>
+                  <h3 className="font-semibold text-forest mb-1">{item.title}</h3>
+                  <p className="text-[0.95rem] text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
